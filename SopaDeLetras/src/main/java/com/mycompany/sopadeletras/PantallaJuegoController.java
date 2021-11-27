@@ -21,6 +21,16 @@ import java.lang.Math;
 import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
 import java.util.Random;
+import com.mycompany.sopadeletras.Estructuras.DoublyCircularNodeList;
+import java.util.HashSet;
+import java.util.Set;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
+                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                             
                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 /**
@@ -30,38 +40,54 @@ import java.util.Random;
  */
 public class PantallaJuegoController implements Initializable {
 
-    @FXML
-    private BorderPane Panel;
     private MapaMatriz m2;
+    private GridPane Matriz = new GridPane();
+    private Integer columnas = InicioController.getColumnas();
+    private Integer filas = InicioController.getFilas();
+    @FXML
+    private BorderPane PanelBorder;
+
+    
+
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        crearTabla(Matriz);
+        Matriz.setMaxWidth(PanelBorder.getPrefWidth());
+        PanelBorder.setCenter(Matriz);
         
-        GridPane tabla = new GridPane();
-        tabla.add(new Label("ksknd"),0,0);
-        Panel.setCenter(tabla);
+  
+    
+
+        
+        
     }    
     public void crearTabla(GridPane panel){
+        DoublyCircularNodeList d1 = new DoublyCircularNodeList();// contiene las columnas
         MapaMatriz m1 = new MapaMatriz();
         Integer[] clave = new Integer[2];
         Random r = new Random();
-        ArrayList<Integer[]> claves = new ArrayList<>();
-        claves.add(claves.size()-1, clave);
-        Integer columnas = InicioController.getColumnas();
-        Integer filas = InicioController.getFilas();
-        Integer[] column = new Integer[columnas];
-        Integer[] row = new Integer[filas];
-        for(Integer i =1;i<=columnas;i++){
-            clave[0]=i;
-            for(Integer a =1 ; a<=filas;a++){
+        System.out.println(Matriz.getHgap()+"y"+Matriz.getVgap());
+        for(Integer i =0;i<columnas;i++){
+            clave[0]=i;           
+            for(Integer a =0 ; a<filas;a++){
                 clave[1]=a;
-                char c = (char)(r.nextInt(26) + 'a');
+                Character c = (char)(r.nextInt(26) + 'a'); 
+                System.out.println(i+" "+a);
+                System.out.println(c);
+                Button b1=new Button(c.toString());  
+               /* b1.setMaxWidth(Double.MAX_VALUE);
+                b1.setMaxHeight(Double.MAX_VALUE);*/
+                panel.add(b1, i, a);              
                 m1.put(clave, c);
-            }
-        }
+            }   
+                
+        }     
+
     }
     public void proyectarMatriz(MapaMatriz m3 ,GridPane panel){
         

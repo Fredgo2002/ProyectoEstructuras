@@ -19,6 +19,9 @@ public class DoublyCircularNodeList <E> {
         this.next = this;
         this.previous = this;
     }
+    public DoublyCircularNodeList(){
+        
+    }
 
     public DoublyCircularNodeList<E> getNext() {
         return next;
