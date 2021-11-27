@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 
+import com.mycompany.sopadeletras.Estructuras.ArrayList;
 import com.mycompany.sopadeletras.Estructuras.MapaMatriz;
 import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
@@ -31,29 +32,38 @@ public class PantallaJuegoController implements Initializable {
 
     @FXML
     private BorderPane Panel;
+    private MapaMatriz m2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         GridPane tabla = new GridPane();
         tabla.add(new Label("ksknd"),0,0);
         Panel.setCenter(tabla);
     }    
-    public void crearTabla(){
-        MapaMatriz m1 ;
-        Integer[] clave;
+    public void crearTabla(GridPane panel){
+        MapaMatriz m1 = new MapaMatriz();
+        Integer[] clave = new Integer[2];
         Random r = new Random();
-        char c = (char)(r.nextInt(26) + 'a');
+        ArrayList<Integer[]> claves = new ArrayList<>();
+        claves.add(claves.size()-1, clave);
         Integer columnas = InicioController.getColumnas();
         Integer filas = InicioController.getFilas();
-        for(int i =0;i<=columnas;i++){
-            for(int a =0 ; a<=filas;a++){
-                
-                
+        Integer[] column = new Integer[columnas];
+        Integer[] row = new Integer[filas];
+        for(Integer i =1;i<=columnas;i++){
+            clave[0]=i;
+            for(Integer a =1 ; a<=filas;a++){
+                clave[1]=a;
+                char c = (char)(r.nextInt(26) + 'a');
+                m1.put(clave, c);
             }
         }
+    }
+    public void proyectarMatriz(MapaMatriz m3 ,GridPane panel){
         
     }
 }
