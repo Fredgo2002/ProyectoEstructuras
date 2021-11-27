@@ -9,6 +9,13 @@ package com.mycompany.sopadeletras.Estructuras;
  *
  * @author User
  */
-public interface Map {
+public interface Map<K,V>{
+    int size();
+    boolean isEmpty();
+    V get (K key);
+    V put(K key , V value);
+    V remove(K key);
+    Iterable<K> keySet();
+    Iterable<V> valueSet();
     
 }

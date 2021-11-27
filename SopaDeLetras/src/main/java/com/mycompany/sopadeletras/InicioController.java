@@ -38,6 +38,8 @@ public class InicioController implements Initializable {
     private TextField tamaño;
     @FXML
     private Button Start;
+    public static Integer columnas;
+    public static Integer filas;
 
     /**
      * Initializes the controller class.
@@ -52,8 +54,8 @@ public class InicioController implements Initializable {
     private void startGame(MouseEvent event) throws IOException {
         String dimensiones = tamaño.getText();
         String[]dimen =dimensiones.split("x");
-        Integer filas = Integer.parseInt(dimen[0]);
-        Integer columnas = Integer.parseInt(dimen[0]);
+        filas = Integer.parseInt(dimen[0]);
+        columnas = Integer.parseInt(dimen[0]);
         Parent root = FXMLLoader.load(getClass().getResource("pantallaJuego.fxml"));
         Scene scene = new Scene(root);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -62,6 +64,14 @@ public class InicioController implements Initializable {
         appStage.show();
         
         
+    }
+
+    public static Integer getColumnas() {
+        return columnas;
+    }
+
+    public static Integer getFilas() {
+        return filas;
     }
     
 }
