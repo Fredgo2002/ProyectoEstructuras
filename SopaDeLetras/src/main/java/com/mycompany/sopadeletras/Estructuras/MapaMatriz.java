@@ -52,19 +52,21 @@ public class MapaMatriz <K,V> extends AbstractMap<K,V>{
         }
     }
 
+  
+
     @Override
-    public Iterable<Entry<K, V>> entrySet() {
-        return new EntryIterable();
+    public Iterable<V> valueSet() {
+            return new ValueIterable().values();
     }
 
     @Override
     public Iterable<K> keySet() {
-        return new KeyIterable();
+            return new KeyIterable().KeySet();
     }
 
     @Override
-    public Iterable<V> valueSet() {
-        return new ValueIterable() ;
+    public Iterable<Entry<K, V>> entrySet() {
+        return new EntryIterable().entrySet();
     }
     private class EntryIterator implements Iterator<Entry<K,V>>{
         private int j=0 ;
@@ -113,60 +115,11 @@ public class MapaMatriz <K,V> extends AbstractMap<K,V>{
         }
         return answer;
     }
-       private class KeyIterator implements Iterator<K> {
-        private Iterator <Entry<K,V>> entries = entrySet().iterator();
-        public boolean hasNext(){
-           return entries.hasNext();
-        }
-        public K next(){
-            return entries.next().getKey();
-        }
-        public void remove(){
-            throw new UnsupportedOperationException();
-        }
-        
-    }
-         private class KeyIterable implements Iterable<K>{
-
-        @Override
-        public Iterator<K> iterator() {
-            return new KeyIterator();
-        }
-        public Iterable<K> KeySet(){
-            return new KeyIterable();
-        }
-    
-}
+      
          
-    private class ValueIterator implements Iterator<V>{
-        private Iterator <Entry <K,V>> entries = entrySet().iterator();
-        @Override
-        public boolean hasNext() {
-            return entries.hasNext();
-        }
-        @Override
-        public V next() {
-            return entries.next().getValue();
-        }
-
-        @Override
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
-    }
-    private class ValueIterable implements Iterable<V>{
-
-        @Override
-        public Iterator<V> iterator() {
-            return new ValueIterator();
-        }
-        public Iterable<V> values(){
-            return new ValueIterable();
-            
-        }
+    
         
-    }
-        
-    }
+ }
+
     
 
