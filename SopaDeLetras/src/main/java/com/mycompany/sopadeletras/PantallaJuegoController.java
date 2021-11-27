@@ -43,7 +43,6 @@ public class PantallaJuegoController implements Initializable {
     }    
     public void crearTabla(){
         MapaMatriz m1 ;
-        
         Integer[] clave;
         Random r = new Random();
         char c = (char)(r.nextInt(26) + 'a');

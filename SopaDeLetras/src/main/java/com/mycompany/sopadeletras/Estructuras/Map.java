@@ -5,6 +5,8 @@
  */
 package com.mycompany.sopadeletras.Estructuras;
 
+import com.mycompany.tallercolas.model.Entry;
+
 /**
  *
  * @author User
@@ -17,5 +19,6 @@ public interface Map<K,V>{
     V remove(K key);
     Iterable<K> keySet();
     Iterable<V> valueSet();
+    Iterable<Entry<K,V>> entrySet();
     
 }
