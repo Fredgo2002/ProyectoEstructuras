@@ -13,7 +13,7 @@ import java.util.Iterator;
  * @author User
  */
 public abstract class AbstractMap <K,V> implements Map<K,V> {
-       @Override
+    @Override
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

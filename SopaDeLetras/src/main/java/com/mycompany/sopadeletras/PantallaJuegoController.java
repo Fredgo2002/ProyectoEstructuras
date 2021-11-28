@@ -7,6 +7,7 @@
  */
 
 import com.mycompany.sopadeletras.Estructuras.ArrayList;
+import com.mycompany.sopadeletras.Estructuras.DoublyCircularLinkedList;
 import com.mycompany.sopadeletras.Estructuras.MapaMatriz;
 import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
@@ -67,7 +68,7 @@ public class PantallaJuegoController implements Initializable {
         
     }    
     public void crearTabla(GridPane panel){
-        DoublyCircularNodeList d1 = new DoublyCircularNodeList();// contiene las columnas
+        DoublyCircularLinkedList d1 = new DoublyCircularLinkedList();// contiene las columnas
         MapaMatriz m1 = new MapaMatriz();
         Integer[] clave = new Integer[2];
         Random r = new Random();
