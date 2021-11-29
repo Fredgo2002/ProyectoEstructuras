@@ -41,12 +41,14 @@ import javafx.scene.shape.Rectangle;
  */
 public class PantallaJuegoController implements Initializable {
 
-    private MapaMatriz m2;
+    private MapaMatriz m2= new MapaMatriz();
     private GridPane Matriz = new GridPane();
     private Integer columnas = InicioController.getColumnas();
     private Integer filas = InicioController.getFilas();
     @FXML
     private BorderPane PanelBorder;
+    @FXML
+    private Button ValidarPalabra;
 
     
 
@@ -84,13 +86,11 @@ public class PantallaJuegoController implements Initializable {
                /* b1.setMaxWidth(Double.MAX_VALUE);
                 b1.setMaxHeight(Double.MAX_VALUE);*/
                 panel.add(b1, i, a);              
-                m1.putLast(clave, a);
+                m2.putLast(clave, a);
             }   
                 
-        }     
+        }    
 
     }
-    public void proyectarMatriz(MapaMatriz m3 ,GridPane panel){
-        
-    }
+ 
 }
