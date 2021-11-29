@@ -84,7 +84,7 @@ public class PantallaJuegoController implements Initializable {
                /* b1.setMaxWidth(Double.MAX_VALUE);
                 b1.setMaxHeight(Double.MAX_VALUE);*/
                 panel.add(b1, i, a);              
-                m1.put(clave, c);
+                m1.putLast(clave, a);
             }   
                 
         }     

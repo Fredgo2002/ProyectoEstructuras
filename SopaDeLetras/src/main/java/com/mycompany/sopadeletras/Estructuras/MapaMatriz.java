@@ -15,8 +15,9 @@ import java.util.NoSuchElementException;
  * @author User
  */
 public class MapaMatriz <K,V> extends AbstractMap<K,V>{
-    private java.util.LinkedList<MapEntry<K,V>> matriz = new java.util.LinkedList<>();// implementar arralist
+    private ArrayList<MapEntry<K,V>> matriz = new ArrayList<>(100);// implementar LinkedList
     public MapaMatriz(){
+
     }
     private int findIndex(K key){
         int n= matriz.size();
@@ -50,6 +51,11 @@ public class MapaMatriz <K,V> extends AbstractMap<K,V>{
         }else{
             return matriz.get(j).setValue(value);
         }
+    }
+    public void putLast(K key,V value){
+        matriz.add(new MapEntry<>(key,value));
+        
+        
     }
 
   

@@ -10,7 +10,7 @@ import com.mycompany.sopadeletras.Estructuras.AbstractMap;
  *
  * @author Dell
  */
-public class MapaPuntaje extends AbstractMap<K,V>{
+public class MapaPuntaje {
     public MapaPuntaje(){}
     
     
