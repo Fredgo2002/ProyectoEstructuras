@@ -10,8 +10,8 @@ package com.mycompany.sopadeletras.Estructuras;
  * @author Dell
  */
 public class Posicion {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
     
     public Posicion(int x, int y){
         this.x = x;

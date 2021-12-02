@@ -23,10 +23,12 @@ import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
 import java.util.Random;
 import com.mycompany.sopadeletras.Estructuras.DoublyCircularNodeList;
+import com.mycompany.sopadeletras.Estructuras.SinglyLinkedList;
 import java.util.HashSet;
 import java.util.Set;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
@@ -48,7 +50,7 @@ public class PantallaJuegoController implements Initializable {
     @FXML
     private BorderPane PanelBorder;
     @FXML
-    private Button ValidarPalabra;
+    private Button botonPuntaje;
 
     
 
@@ -82,7 +84,17 @@ public class PantallaJuegoController implements Initializable {
                 Character c = (char)(r.nextInt(26) + 'a'); 
                 System.out.println(i+" "+a);
                 System.out.println(c);
-                Button b1=new Button(c.toString());  
+                Button b1=new Button(c.toString());
+                String palabra = "";
+                SinglyLinkedList<Button> botones = new SinglyLinkedList<>();
+                b1.setOnMouseClicked((MouseEvent e) ->{
+                    botones.addFirst(b1);
+                } );
+                /*while(!botones.isEmpty()){
+                    palabra = palabra+botones.first().getText();
+                    botones.removeFirst();
+                }
+                System.out.println(palabra);*/
                /* b1.setMaxWidth(Double.MAX_VALUE);
                 b1.setMaxHeight(Double.MAX_VALUE);*/
                 panel.add(b1, i, a);              
@@ -91,6 +103,10 @@ public class PantallaJuegoController implements Initializable {
                 
         }    
 
+    }
+
+    @FXML
+    private void validarEnviarPuntaje(MouseEvent event) {
     }
  
 }

@@ -55,7 +55,7 @@ public class InicioController implements Initializable {
         String dimensiones = tamaño.getText();
         String[]dimen =dimensiones.split("x");
         filas = Integer.parseInt(dimen[0]);
-        columnas = Integer.parseInt(dimen[0]);
+        columnas = Integer.parseInt(dimen[1]);
         Parent root = FXMLLoader.load(getClass().getResource("pantallaJuego.fxml"));
         Scene scene = new Scene(root);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
