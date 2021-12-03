@@ -65,7 +65,7 @@ public class PantallaJuegoController implements Initializable {
     private BorderPane PanelBorder;
     @FXML
     private Button botonPuntaje;
-    private ArrayList<DoublyCircularLinkedList> botonesC = new ArrayList<>();
+    private ArrayList<CircularLinkedList<Button>> botonesC = new ArrayList<>();
 
 
 
@@ -101,7 +101,6 @@ public class PantallaJuegoController implements Initializable {
         MapaMatriz m1 = new MapaMatriz();
         Integer[] clave = new Integer[2];
         Random r = new Random();
-        ArrayList<CircularLinkedList<Button>>  botonesC = completarMatriz();
         System.out.println(botonesC.size());
         int contador = 0;
         while(contador<botonesC.size()){
@@ -136,8 +135,6 @@ public class PantallaJuegoController implements Initializable {
     
     
     private ArrayList<CircularLinkedList<Button>> completarMatriz() throws IOException{
-        ArrayList<CircularLinkedList<Button>>  botonesC = new ArrayList<>() ;
-        ArrayList<CircularLinkedList<Button>>  botonesF = new ArrayList<>() ;
         Random ra = new Random();
         for(Integer r =0 ; r < columnas;r++){ 
             CircularLinkedList<Button> temp =new CircularLinkedList<>();
@@ -221,6 +218,13 @@ public class PantallaJuegoController implements Initializable {
             }
         }
 }
+    public void rotarColumnas(int i) throws IOException{
+        botonesC = completarMatriz();
+        botonesC.get(i).rotate();
+        crearTabla(this.Matriz);
+        
+        
+    }
 }
 
         
