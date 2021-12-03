@@ -65,7 +65,6 @@ public class PantallaJuegoController implements Initializable {
     private BorderPane PanelBorder;
     @FXML
     private Button botonPuntaje;
-    private ArrayList<CircularLinkedList<Button>> botonesC = new ArrayList<>();
 
 
 
@@ -101,6 +100,7 @@ public class PantallaJuegoController implements Initializable {
         MapaMatriz m1 = new MapaMatriz();
         Integer[] clave = new Integer[2];
         Random r = new Random();
+        ArrayList<CircularLinkedList<Button>>  botonesC = completarMatriz();
         System.out.println(botonesC.size());
         int contador = 0;
         while(contador<botonesC.size()){
@@ -135,6 +135,8 @@ public class PantallaJuegoController implements Initializable {
     
     
     private ArrayList<CircularLinkedList<Button>> completarMatriz() throws IOException{
+        ArrayList<CircularLinkedList<Button>>  botonesC = new ArrayList<>() ;
+        ArrayList<CircularLinkedList<Button>>  botonesF = new ArrayList<>() ;
         Random ra = new Random();
         for(Integer r =0 ; r < columnas;r++){ 
             CircularLinkedList<Button> temp =new CircularLinkedList<>();
@@ -184,7 +186,7 @@ public class PantallaJuegoController implements Initializable {
              boolean b1 =ra.nextBoolean();
             String hola = content.get(i);
             CircularLinkedList<Button> temp = new CircularLinkedList<>(); 
-            if(b1){
+            if(false){
                 content= ingresarPalabra(columnas);
                 int valorEntero = (int) Math.floor(Math.random()*(filas-1));
                 temp = btnc.get(valorEntero);
@@ -202,13 +204,13 @@ public class PantallaJuegoController implements Initializable {
                 int valorEntero = (int) Math.floor(Math.random()*(columnas-1));
                 content= ingresarPalabra(columnas);
                 temp = btnc.get(valorEntero);  
-                for(Integer w =0 ; w < hola.length()-1 ; w++){
+                for(Integer w =0 ; w < hola.length() ; w++){
                  char[] c = hola.toCharArray();
                  Character cf = c[w];
                 Button bnn = temp.removeFirst();
                 bnn.setText(cf.toString());
                 temp.addLast(bnn);
-                               
+                
                     
            
                     
@@ -217,9 +219,8 @@ public class PantallaJuegoController implements Initializable {
             }
             }
         }
-}
-    public void rotarColumnas(int i) throws IOException{
-        botonesC = completarMatriz();
+}  public void rotarColumnas(int i) throws IOException{
+        ArrayList<CircularLinkedList<Button>> botonesC = completarMatriz();
         botonesC.get(i).rotate();
         crearTabla(this.Matriz);
         
