@@ -20,7 +20,12 @@ public class ArrayList <E> implements List<E> {
 
     @Override
     public int size() {return size;}
- 
+    public ArrayList(E[] content){
+        data =  content;
+        
+    }
+   
+    
     @Override
     public int hashCode() {
         int hash = 3;

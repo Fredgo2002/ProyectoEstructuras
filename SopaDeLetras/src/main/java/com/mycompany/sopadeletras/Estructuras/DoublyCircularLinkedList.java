@@ -5,6 +5,10 @@
  */
 package com.mycompany.sopadeletras.Estructuras;
 
+import com.mycompany.tallercolas.model.Entry;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  *
  * @author User
@@ -88,7 +92,14 @@ public class DoublyCircularLinkedList<E> {
             size--;
             return node.getContent();
         }
+      
     }
+    public void clean(){
+        for(int i =0 ; i<this.size ;i++){
+            this.removeFirst();
+        }
+    }
+    
     
     
 }
